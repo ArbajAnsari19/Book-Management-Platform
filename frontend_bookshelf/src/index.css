@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lato:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 38% 96%;
+    --foreground: 20 14% 22%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 22%;
+
+    --primary: 350 68% 37%;
+    --primary-foreground: 43 38% 96%;
+
+    --secondary: 30 24% 92%;
+    --secondary-foreground: 20 14% 22%;
+
+    --muted: 30 10% 92%;
+    --muted-foreground: 20 6% 46%;
+
+    --accent: 20 58% 54%;
+    --accent-foreground: 43 38% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 43 38% 96%;
+
+    --border: 20 6% 86%;
+    --input: 20 6% 86%;
+    --ring: 350 68% 37%;
+
+    --radius: 0.5rem;
+
+    --book-spine-1: 350 68% 37%;
+    --book-spine-2: 20 58% 54%;
+    --book-spine-3: 33 100% 50%;
+    --book-spine-4: 196 80% 36%;
+    --book-spine-5: 258 90% 66%;
+  }
+
+  .dark {
+    --background: 240 21% 15%;
+    --foreground: 43 38% 96%;
+
+    --card: 240 21% 18%;
+    --card-foreground: 43 38% 96%;
+
+    --popover: 240 21% 18%;
+    --popover-foreground: 43 38% 96%;
+
+    --primary: 350 68% 47%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 240 21% 22%;
+    --secondary-foreground: 43 38% 96%;
+
+    --muted: 240 21% 22%;
+    --muted-foreground: 43 10% 70%;
+
+    --accent: 20 58% 54%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 43 38% 96%;
+
+    --border: 240 21% 25%;
+    --input: 240 21% 25%;
+    --ring: 350 68% 47%;
+
+    --book-spine-1: 350 68% 50%;
+    --book-spine-2: 20 58% 60%;
+    --book-spine-3: 33 100% 55%;
+    --book-spine-4: 196 80% 46%;
+    --book-spine-5: 258 90% 76%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+  }
+}
+
+@layer components {
+  .book-card {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .book-cover {
+    @apply aspect-[2/3] bg-secondary rounded-md overflow-hidden relative shadow-md;
+  }
+  
+  .book-spine {
+    @apply h-full w-4 absolute left-0 top-0;
+  }
+  
+  .book-spine-1 {
+    @apply bg-[hsl(var(--book-spine-1))];
+  }
+  
+  .book-spine-2 {
+    @apply bg-[hsl(var(--book-spine-2))];
+  }
+  
+  .book-spine-3 {
+    @apply bg-[hsl(var(--book-spine-3))];
+  }
+  
+  .book-spine-4 {
+    @apply bg-[hsl(var(--book-spine-4))];
+  }
+  
+  .book-spine-5 {
+    @apply bg-[hsl(var(--book-spine-5))];
+  }
+
+  .page-title {
+    @apply text-3xl font-bold mb-6 text-foreground/90;
+  }
+
+  .library-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+.animate-enter {
+  animation: enter 0.3s ease-out;
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
